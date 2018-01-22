@@ -4,34 +4,39 @@
 <?php ob_start();
 ?>
 
-<div class="login container">
-    <div class="table">
-        <div class="col-md-12">
-            <div class="col-md-12">
-                <div class="col-md-2"><label for="sVilleDepart"><h5 class="white">Ville de départ</label></h5></div>
-                <div class="col-md-2">
-                    <select id="sVilleDepart" name="sVilleDepart" class="selectpicker">
-                        <?php
-                        echo '<option value="0">Toutes les villes</option>';
-                        foreach ($arpts as $arpt) :
-                            echo '<option value="' . $arpt->getIdArpt() . '">' . $arpt->getVilleArpt() . '</option>';
-                        endforeach;
-                        ?>
-                    </select></div>
+<div class="search-container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
+                <div class="col-sm-2 col-md-2 col-lg-2"><label for="sVilleDepart"><h5 class="white">Ville de départ</label></h5></div>
+                <div class="col-sm-2 col-md-2 col-lg-2"><label for="sVilleArrivee"><h5 class="white">Ville d'Arrivée</label></h5></div>                
             </div>
-            <div class="col-md-12">
-                <div class="col-md-2"><label for="sVilleArrivee"><h5 class="white">Ville d'Arrivée</label></h5></div>
-                <div class="col-md-2">
+            <div class="row">
+                <div class="col-sm-2 col-md-2 col-lg-2">
                     <select id="sVilleArrivee" name="sVilleArrivee" class="selectpicker">
                         <?php
                         echo '<option value="0">Toutes les villes</option>';
                         foreach ($arpts as $arpt) :
-                            echo '<option value="' . $arpt->getIdArpt() . '">' . $arpt->getVilleArpt() . '</option>';
+                            echo '<option value="' . $arpt->getIdArpt() . '">' . $arpt->getNomArpt() . '</option>';
                         endforeach;
                         ?>
-                    </select></div> 
-                <div class="col-md-4"><a href="#" class="btn btn-white-fill expand">Sélectionner tous les vols </a></div>
-            </div>
+                    </select>
+                </div> 
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <select id="sVilleDepart" name="sVilleDepart" class="selectpicker">
+                        <?php
+                        echo '<option value="0">Toutes les villes</option>';
+                        foreach ($arpts as $arpt) :
+                            echo '<option value="' . $arpt->getIdArpt() . '">' . $arpt->getNomArpt() . '</option>';
+                        endforeach;
+                        ?>
+                    </select>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <button type="button" >Sélectionner tous les vols </button>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4"><label>Il y a <?php echo count($vols); ?> vols disponibles d'après vos critères. </label></div>
+            </div>    
         </div>
     </div>
 </div>
@@ -181,7 +186,7 @@
         </div>
     </div>
 </div>
-<
+
 
 
 
